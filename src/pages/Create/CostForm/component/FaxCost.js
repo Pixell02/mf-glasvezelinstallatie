@@ -1,17 +1,22 @@
 import React from "react";
 import "./FaxCost.css";
+import AddRow from "./FaxCostComponents/AddRow";
 import Eenheid from "./FaxCostComponents/Eenheid";
 import IdColumn from "./FaxCostComponents/IdColumn";
 import LeftHeader from "./FaxCostComponents/LeftHeader";
 import Omschrijving from "./FaxCostComponents/Omschrijving";
 import Prijs from "./FaxCostComponents/Prijs";
 import RightHeader from "./FaxCostComponents/RightHeader";
+import Row from "./FaxCostComponents/Row";
 import Stuks from "./FaxCostComponents/Stuks";
 import Totaal from "./FaxCostComponents/Totaal";
+import { useAddDimension } from "./hooks/useAddDimension";
 import { useDate } from "./hooks/useDate";
 
 export default function FaxCost({ name, idNumber }) {
   const { date } = useDate();
+
+  const {numberOfDimensions, handleAddDimension}=useAddDimension();
 
   return (
     <div className="d-flex flex-column w-100 h-100 justify-content-center">
@@ -27,28 +32,7 @@ export default function FaxCost({ name, idNumber }) {
             <RightHeader name={name} date={date} />
           </td>
         </tr>
-        <tr
-          className="d-flex flex-row border border-dark mt-3 mb-3"
-          style={{ border: "1px solid black", backgroundColor: "rgba(220,220,220)" }}
-        >
-          <IdColumn>
-          </IdColumn>
-          <Omschrijving>
-            <b>Omschrijving</b>
-          </Omschrijving>
-         <Eenheid>
-            <b>Eenheid</b>
-         </Eenheid>
-          <Stuks>
-            <b>Stuks</b>
-          </Stuks>
-          <Prijs>
-            <b>Prijs</b>
-          </Prijs>
-          <Totaal>
-            <b>Totaal</b>
-          </Totaal>
-        </tr>
+        <Row />
         <tr
           className="w-100 d-flex align-items-center"
           style={{ border: "1px solid black", backgroundColor: "rgba(220,220,220)" }}
@@ -63,20 +47,9 @@ export default function FaxCost({ name, idNumber }) {
           <Prijs></Prijs>
           <Totaal></Totaal>
         </tr>
-        <tr className="d-flex h-100">
-        <IdColumn>
-              {`${idNumber}`}001
-         </IdColumn>
-          <Omschrijving>
-            <textarea style={{ minWidth: "300px"}}></textarea>
-          </Omschrijving>
-          <Eenheid></Eenheid>
-          <Stuks></Stuks>
-          <Prijs></Prijs>
-          <Totaal></Totaal>
-        </tr>
+        <AddRow idNumber={idNumber} number={numberOfDimensions} />
       </table>
-      <button className="mt-2 btn btn-warning">Dodaj nowy wiersz</button>
+      <button onClick={handleAddDimension} className="mt-2 btn btn-warning">Dodaj nowy wiersz</button>
     </div>
   );
 }
