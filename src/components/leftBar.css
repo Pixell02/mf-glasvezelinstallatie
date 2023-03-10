@@ -1,0 +1,15 @@
+.leftBar-container {
+  background-color: rgb(153, 15, 15);
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  width: 120px;
+  color: white;
+  border-top-right-radius: 5px;
+  height: 100%;
+}
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
