@@ -1,10 +1,10 @@
 import React from "react";
-import Eenheid from "./Eenheid";
 import IdColumn from "./IdColumn";
-import Omschrijving from "./Omschrijving";
-import Prijs from "./Prijs";
-import Stuks from "./Stuks";
-import Totaal from "./Totaal";
+import DescriptionDimension from "./DescriptionDimension";
+import UnitDimension from "./UnitDimension";
+import PiecesDimension from "./PIecesDimension";
+import PriceDimension from "./PriceDimension";
+import TotalDimension from "./TotalDimension";
 
 export default function Row() {
   return (
@@ -13,21 +13,21 @@ export default function Row() {
       style={{ border: "1px solid black", backgroundColor: "rgba(220,220,220)" }}
     >
       <IdColumn></IdColumn>
-      <Omschrijving>
+      <DescriptionDimension>
         <b>Omschrijving</b>
-      </Omschrijving>
-      <Eenheid>
+      </DescriptionDimension>
+      <UnitDimension>
         <b>Eenheid</b>
-      </Eenheid>
-      <Stuks>
+      </UnitDimension>
+      <PiecesDimension>
         <b>Stuks</b>
-      </Stuks>
-      <Prijs>
+      </PiecesDimension>
+      <PriceDimension>
         <b>Prijs</b>
-      </Prijs>
-      <Totaal>
+      </PriceDimension>
+      <TotalDimension>
         <b>Totaal</b>
-      </Totaal>
+      </TotalDimension>
     </tr>
   );
 }

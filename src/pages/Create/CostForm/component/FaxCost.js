@@ -1,17 +1,16 @@
 import React from "react";
 import "./FaxCost.css";
 import AddRow from "./FaxCostComponents/AddRow";
-import Eenheid from "./FaxCostComponents/Eenheid";
 import IdColumn from "./FaxCostComponents/IdColumn";
 import LeftHeader from "./FaxCostComponents/LeftHeader";
-import Omschrijving from "./FaxCostComponents/Omschrijving";
-import Prijs from "./FaxCostComponents/Prijs";
+import PriceDimension from "./FaxCostComponents/PriceDimension";
 import RightHeader from "./FaxCostComponents/RightHeader";
 import Row from "./FaxCostComponents/Row";
-import Stuks from "./FaxCostComponents/Stuks";
-import Totaal from "./FaxCostComponents/Totaal";
 import { useAddDimension } from "./hooks/useAddDimension";
 import { useDate } from "./hooks/useDate";
+import UnitDimension from "./FaxCostComponents/UnitDimension";
+import DescriptionDimension from "./FaxCostComponents/DescriptionDimension";
+import TotalDimension from "./FaxCostComponents/TotalDimension";
 
 export default function FaxCost({ name, idNumber }) {
   const { date } = useDate();
@@ -41,11 +40,10 @@ export default function FaxCost({ name, idNumber }) {
           <td className="d-flex justify-content-start w-100" style={{ minWidth: "300px" }}>
             <b>Aansluitingen nieuwbouw</b>
           </td>
-          <Omschrijving></Omschrijving>
-          <Eenheid></Eenheid>
-          <Stuks></Stuks>
-          <Prijs></Prijs>
-          <Totaal></Totaal>
+          <DescriptionDimension></DescriptionDimension>
+          <UnitDimension></UnitDimension>
+          <PriceDimension></PriceDimension>
+          <TotalDimension></TotalDimension>
         </tr>
         <AddRow idNumber={idNumber} number={numberOfDimensions} />
       </table>

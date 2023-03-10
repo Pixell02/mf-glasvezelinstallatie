@@ -7,7 +7,6 @@ import FaxCost from './component/FaxCost';
 
 export default function CostForm() {
   const params = useParams();
-  console.log(params)
   return (
     <div>
       <Navbar />
@@ -15,7 +14,16 @@ export default function CostForm() {
         <LeftBar />
         <div className='d-flex justify-content-center align-items-center w-100 h-100 mt-5'>
         <MainContent>
-          <FaxCost name="Reconstructies" idNumber="REC" />
+          {params && params.id === "B&A" && (
+            <FaxCost name="B&A" idNumber="B&A" />
+          )}
+          {params && params.id === "NB" && (
+            <FaxCost name="NB" idNumber="NB" />
+          )}
+          {params && params.id === "Reconstructies" && (
+            <FaxCost name="Reconstructies" idNumber="REC" />
+          )}
+          
         </MainContent>
         </div>
       </div>
