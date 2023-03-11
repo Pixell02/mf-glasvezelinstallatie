@@ -7,6 +7,7 @@ import Users from "./pages/Users/Users";
 import WorkHours from "./pages/WorkHours/WorkHours";
 import AdministratorPanel from "./pages/AdministratorPanel/AdministratorPanel";
 import Login from "./pages/Login/Login";
+import ToAdd from "./pages/toAdd/toAdd";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/history" element={<History />} />
         <Route path="/workHours" element={<WorkHours />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/toAdd" element={<ToAdd />} />
       </Routes>
     </BrowserRouter>
   );

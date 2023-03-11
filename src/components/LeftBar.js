@@ -9,14 +9,20 @@ export default function LeftBar() {
         <List>
           <Link to="/users">Użytkownicy</Link>
         </List>
-        <List>
+        {/* <List>
           <Link to="/administratorPanel">Panel admina</Link>
+        </List> */}
+        <List>
+          <Link to="/toAdd">Do dodania</Link>
         </List>
         <List>
           <Link to="/create">Utwórz</Link>
         </List>
         <List>
           <Link to="/workHours">Godziny pracy</Link>
+        </List>
+        <List>
+          <Link to="/history">Historia</Link>
         </List>
         <List>
           <Link to="/login">Wyloguj się</Link>

@@ -1,0 +1,23 @@
+.add-user-container .user-account-container {
+  display: flex;
+  width: 265px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.add-user-container .d-flex .btn-warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  margin-left: 10px;
+}
+
+.add-user-container .user-account-container .border-bottom {
+  border-bottom: 1px solid black;
+}
+.users-container {
+  overflow: auto;
+  height: 400px;
+  border: 1px solid gray;
+}
