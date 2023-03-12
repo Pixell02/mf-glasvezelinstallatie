@@ -10,7 +10,7 @@ export default function AddUser() {
         <button className='btn btn-warning'>Dodaj</button>
       </div>
       <div className='user-account-container mt-2'>
-        <div className='d-flex flex-column w-100 overflow-scroll h-100'>
+        <div className='d-flex flex-column w-100 overflow-auto h-100'>
           <div className='d-flex flex-row'><label>Email: </label><span>jakisemail@email.com</span></div>
           <div className='d-flex flex-row mt-1 border-bottom border-dark '><label>hasło: </label><span>zaqwsx</span></div>
         </div>

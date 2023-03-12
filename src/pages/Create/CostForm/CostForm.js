@@ -8,9 +8,9 @@ import FaxCost from './component/FaxCost';
 export default function CostForm() {
   const params = useParams();
   return (
-    <div>
+    <div className='w-100 h-100'>
       <Navbar />
-      <div className='d-flex flex-row'>
+      <div className='d-flex flex-row w-100'>
         <LeftBar />
         <div className='d-flex justify-content-center align-items-center w-100 h-100 mt-5'>
         <MainContent>

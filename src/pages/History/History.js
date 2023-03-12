@@ -10,7 +10,7 @@ export default function History() {
       <Navbar/>
       <div className='d-flex flex-row'>
         <LeftBar />
-        <div className='d-flex justify-content-start w-100 h-100'>
+        <div className='d-flex justify-content-start w-100'>
           <MainContent>
             <HistoryContent />
           </MainContent>

@@ -19,5 +19,7 @@
 .users-container {
   overflow: auto;
   height: 400px;
-  border: 1px solid gray;
+  border-radius: 50px;
+  background-color: rgb(235, 235, 235);
+  /* border: 1px solid gray; */
 }
