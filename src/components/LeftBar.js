@@ -5,7 +5,7 @@ import List from "./List";
 export default function LeftBar() {
   return (
     <div className="leftBar-container">
-      <div className="mt-5">
+      <div className="mt-5 pt-5">
         <List>
           <Link to="/users">Użytkownicy</Link>
         </List>

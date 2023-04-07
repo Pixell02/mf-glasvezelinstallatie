@@ -1,12 +1,14 @@
 .leftBar-container {
   background-color: rgb(153, 15, 15);
   display: flex;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   width: 120px;
   color: white;
   border-top-right-radius: 5px;
   height: 100%;
+  top: 0;
+  z-index: 1;
 }
 a {
   color: white;

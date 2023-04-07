@@ -3,6 +3,8 @@ import { Calendar } from 'react-calendar'
 import "react-calendar/dist/Calendar.css"
 
 export default function Summary() {
+
+
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [workHours, setWorkHours] = useState([
     { day: "2023-03-11", start: "09:00", end: "17:00" },
@@ -32,14 +34,16 @@ export default function Summary() {
   };
 
   return (
-    <div>
+    <div className='d-flex flex-column mt-5'>
       <h1>Kalendarz</h1>
       <Calendar
         value={selectedDate}
         onChange={setSelectedDate}
         tileContent={tileContent}
       />
+      <div className='w-100 d-flex justify-content-end'>
       <h3>Suma: x godzin</h3>
+      </div>
     </div>
   );
 }
