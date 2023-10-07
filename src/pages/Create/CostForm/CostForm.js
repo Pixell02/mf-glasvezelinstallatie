@@ -7,9 +7,12 @@ import FaxCost from './component/FaxCost';
 import { CostContext } from '../../toAdd/Context/CostContext';
 import { v4 as uuidv4 } from 'uuid';
 import { useDate } from './component/hooks/useDate';
+import { useAuthContext } from '../../../hooks/useAuthContext';
+
 
 export default function CostForm() {
   const id = uuidv4();
+  const {user} = useAuthContext();
   const { date } = useDate();
   const params = useParams();
   const [price, setPrice] = useState({
@@ -23,16 +26,17 @@ export default function CostForm() {
     CreditorCode: "",
     CreditorName: "",
     data: [],
-    uid: id
+    uid: id,
+    user: user.uid
   });
   
   return (
     <CostContext.Provider value={{price, setPrice}}>
-    <div className='w-100 h-100'>
+    <div className='w-75 h-100 d-flex position-absolute'>
       <Navbar />
       <div className='d-flex flex-row w-100'>
         <LeftBar />
-        <div className='d-flex justify-content-center align-items-center w-100 h-100 mt-5'>
+        <div className='d-flex w-100 h-100'>
         <MainContent>
           {params && params.id === "B&A" && (
             <FaxCost name="B&A" idNumber="B&A" />

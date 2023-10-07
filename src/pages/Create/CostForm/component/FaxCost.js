@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./FaxCost.css";
 import AddRow from "./FaxCostComponents/AddRow";
 import IdColumn from "./FaxCostComponents/IdColumn";
@@ -13,28 +13,48 @@ import DescriptionDimension from "./FaxCostComponents/DescriptionDimension";
 import TotalDimension from "./FaxCostComponents/TotalDimension";
 import { useData } from "./hooks/useData";
 import { AddDoc } from "../../../../hooks/useAddDoc";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { CostContext } from "../../../toAdd/Context/CostContext";
+import useMultipleImageUploader from "./hooks/useMultipleImageUploader";
+import addToStorage from "./hooks/addToStorage";
 
 export default function FaxCost({ name, idNumber }) {
   const { date } = useDate();
-  const params = useParams();
   const { price, setPrice } = useContext(CostContext);
+  const navigate = useNavigate();
   const { numberOfDimensions, handleAddDimension } = useAddDimension();
-  const { handleAddData, data, toAddData, setDataArray } = useData(numberOfDimensions);
-
-  const handleAddToDataBase = ({price, toAddData}) => {
+  const { handleAddData, data, toAddData, setToAddData, setDataArray } = useData(numberOfDimensions);
+  const { selectedFiles, imagePreviews, handleFileSelect } = useMultipleImageUploader();
+  const handleAddToDataBase = async({ price, toAddData }) => {
     
     AddDoc("toAddData", price);
-    AddDoc("fromAddData", toAddData);
+    await addToStorage({price, selectedFiles, toAddData, setToAddData})
+     .then(() => {
+      navigate("/create")
+     })
+     .catch(err => console.log(err))
+    
   };
-
+  
   return (
-    <div className="d-flex w-100 justify-content-center">
-      <div className="d-flex flex-column h-100 justify-content-center fax-cost-container">
+    <div id="table" className="d-flex w-100">
+      <div className="d-flex flex-column h-100 fax-cost-container">
+        <div className="d-flex justify-content-start mb-2">
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleFileSelect}
+            style={{ display: "none" }}
+            id="fileInput"
+          />
+          <label htmlFor="fileInput" className="add-photo-button btn btn-warning">
+            Dodaj zdjęcie
+          </label>
+        </div>
         <div className="d-flex justify-content-end mb-2">
           <button
-            onClick={() => handleAddToDataBase({price, toAddData})}
+            onClick={() => handleAddToDataBase({ price, toAddData })}
             className="btn btn-warning d-flex justify-content-center"
           >
             Zapisz
@@ -68,7 +88,14 @@ export default function FaxCost({ name, idNumber }) {
         <button onClick={handleAddDimension} className="mt-2 btn btn-warning">
           Dodaj nowy wiersz
         </button>
+        <div className="image-previews">
+          <div className="bg-light w-100">Zdjęcia</div>
+          {imagePreviews.map((preview, index) => (
+            <img key={index} src={preview} alt={`Zdjęcie ${index}`} className="photo" />
+          ))}
+        </div>
       </div>
+      
     </div>
   );
 }

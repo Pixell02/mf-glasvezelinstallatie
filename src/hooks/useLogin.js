@@ -8,12 +8,13 @@ export const useLogin = () => {
 
     const [error, setError] = useState(null);
     const { dispatch } = useAuthContext()
-
+    const navigate = useNavigate();
     const login = (email, password) => {
         setError(null);
         signInWithEmailAndPassword(auth, email, password)
           .then((res) => {
             dispatch({type: 'LOGIN', payload: res.user })
+            navigate("/create")
           })
           .catch((err) => {
             setError(err.message)

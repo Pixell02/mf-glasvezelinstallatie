@@ -18,3 +18,47 @@ a {
 a:hover {
   color: white;
 }
+.ham-bar {
+  height: auto;
+  display: flex;
+  align-items: center;
+  width: 60px;
+  margin-top: 80px;
+  background-color: rgb(153, 15, 15);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-bottom: 10px;
+  position: fixed;
+  flex-direction: column;
+  z-index: 5;
+}
+
+.ham-bar .navbar-toggler-icon {
+  margin: 0 10px 0 10px;
+}
+.ham-bar .ham-btn {
+  background: none;
+  border: none;
+  z-index: 15;
+}
+.ham-btn .navbar-toggler-icon {
+  z-index: 16;
+  color: white;
+}
+.leftBar-container-smaller {
+  height: 0;
+  transition: 0.5s ease-in-out;
+}
+.leftBar-container-bigger {
+  height: 600px;
+  transition: 0.5s ease-in-out;
+}
+.ham-bar .leftBar-container-smaller .list-content a {
+  font-size: 8px;
+  text-align: center;
+}
+
+.ham-bar .leftBar-container-bigger .list-content a {
+  font-size: 8px;
+  text-align: center;
+}

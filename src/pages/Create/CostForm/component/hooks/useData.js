@@ -3,13 +3,16 @@ import { useParams } from "react-router";
 import { useDate } from "./useDate";
 import { v4 as uuidv4 } from 'uuid';
 import { CostContext } from "../../../../toAdd/Context/CostContext";
+import { useAuthContext } from "../../../../../hooks/useAuthContext";
 
 export const useData = (number) => {
+  
   const id = uuidv4();
   const params = useParams();
   const { date } = useDate();
+  const { user } = useAuthContext();
   const {price, setPrice} = useContext(CostContext);
-  const [dataArray, setDataArray] = useState(Array.from({ length: number }, () => ({ description: "", price: "" })));
+  const [dataArray, setDataArray] = useState(Array.from({ length: number }, () => ({ description: "", amount: 0, price: "" })));
   
   const [data, setData] = useState({
     type: params.id,
@@ -22,15 +25,16 @@ export const useData = (number) => {
     CreditorCode: "",
     CreditorName: "",
     data: dataArray,
-    uid: id
+    uid: id,
   });
   
   const [toAddData, setToAddData] = useState({
-    email: "email",
-    projectName: data.ProjectName,
+    email: user.email,
+    projectName: price.ProjectName,
     type: params.id,
     Date: date,
-    uid: id
+    photo: [""],
+    uid: price.uid,
   });
 
   const handleAddData = (name, value) => {
@@ -39,13 +43,14 @@ export const useData = (number) => {
       [name]: value,
     }));
   };
+  
 
   useEffect(() => {
     setToAddData((prevState) => ({
       ...prevState,
-      projectName: data.ProjectName,
+      projectName: price.ProjectName,
     }));
-  }, [data]);
+  }, [price]);
 
   useEffect(() => {
     
@@ -56,5 +61,5 @@ export const useData = (number) => {
   }, [dataArray]);
   
 
-  return { handleAddData, setDataArray, data, toAddData, setData };
+  return { handleAddData, setDataArray, data, toAddData, setToAddData, setData };
 };

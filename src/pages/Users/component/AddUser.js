@@ -9,13 +9,13 @@ import { useCollection } from "../../../hooks/useCollection";
 
 export default function AddUser() {
   const { password } = usePasswordGenerator();
-  const { handleEmailValue, handleAddUser } = useAddUser(password);
+  const { handleEmailValue, handleAddUser, email } = useAddUser(password);
   const { documents: users } = useCollection("usersToAdd");
   return (
     <div className="add-user-container">
       <p>Dodaj użytkownika</p>
       <div className="d-flex flex-row">
-        <input type="text" className="userEmail" onChange={(e) => handleEmailValue(e.target.value)} />
+        <input type="text" className="userEmail" value={email} onChange={(e) => handleEmailValue(e.target.value)} />
         <button onClick={handleAddUser} className="btn btn-warning">
           Dodaj
         </button>

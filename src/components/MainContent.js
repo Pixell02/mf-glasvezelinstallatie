@@ -2,7 +2,7 @@ import React from 'react'
 import "./mainContent.css"
 export default function MainContent({children}) {
   return (
-    <div className='main-content w-100'>
+    <div className='main-content'>
       {children}
     </div>
   )

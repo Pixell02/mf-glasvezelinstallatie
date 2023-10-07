@@ -4,7 +4,7 @@ import { useAuthContext } from './useAuthContext'
 import { auth } from '../firebase/config'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
-export const useSignup = () => {
+ const useSignup = () => {
     const [error, setError] = useState(null)
     const { dispatch } = useAuthContext()
 
@@ -20,3 +20,5 @@ export const useSignup = () => {
     }
     return {error, signup }
 }
+
+export default useSignup;

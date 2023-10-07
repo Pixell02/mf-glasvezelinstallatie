@@ -5,3 +5,51 @@ textarea {
 .fax-cost-container {
   width: 1000px;
 }
+.price {
+  width: 100%;
+  border: none;
+  height: 100%;
+  text-align: center;
+}
+span {
+  margin-left: 20px;
+}
+.price {
+  border: none;
+  height: 100%;
+}
+.price:focus {
+  outline: none;
+}
+.total-price-container {
+  display: flex;
+  width: 50%;
+  height: 40px;
+  font-size: 20px;
+  border: 2px solid black;
+  text-align: center;
+  align-items: center;
+  margin-left: 50%;
+  justify-content: center;
+}
+.image-previews {
+  margin-top: 50px;
+  background-color: rgb(236, 236, 236);
+  margin-bottom: 50px;
+}
+.photo :first-child {
+  margin-left: 0px;
+}
+.photo {
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 70px;
+}
+
+@media screen and (max-width: 768px) {
+  #table {
+    transform: scale(0.3);
+    margin-top: -100px;
+    margin-left: -250px;
+  }
+}

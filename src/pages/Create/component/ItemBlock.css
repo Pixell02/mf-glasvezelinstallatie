@@ -11,9 +11,16 @@
 .item-block :hover {
   border: 1px solid rgb(0, 0, 0);
 }
+.item-container-container {
+  width: 200px;
+  height: 150px;
+}
+
 .item-link {
+  display: flex;
   color: black;
-  margin-left: 50px;
+  margin: 20px;
+  width: 100%;
   transition-property: box-shadow;
   transition-duration: 0.2s;
 }
@@ -24,6 +31,19 @@
   box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
-.item-container :first-child {
+.item-container:first-child {
   margin-left: 0;
+}
+.item-container {
+  display: flex;
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  a {
+    margin-left: 0px;
+  }
+  .item-container:first-child {
+    margin-left: 0;
+  }
 }

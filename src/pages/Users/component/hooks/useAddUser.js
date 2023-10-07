@@ -23,7 +23,8 @@ export default function useAddUser(password) {
 
   const handleAddUser = () => {
     AddDoc("usersToAdd", data);
+    setEmail("")
   };
 
-  return { userPassword, handleEmailValue, handleAddUser };
+  return {email, userPassword, handleEmailValue, handleAddUser };
 }

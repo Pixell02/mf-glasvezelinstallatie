@@ -6,17 +6,19 @@ import { costFormTypes } from './costFormTypes'
 import ItemBlock from './ItemBlock'
 export default function CreateContent() {
   return (
-    <div>
+    <div className='d-flex flex-column'>
       <Title>
         Utwórz
       </Title>
       <ItemContainer>
         {costFormTypes.map((item) => (
+          <div className='item-content-container'>
           <Link to={`/create/${item.name}`} className="item-link">
           <ItemBlock>
             {item.name}
           </ItemBlock>
           </Link>
+          </div>
         ))}
       </ItemContainer>
     </div>

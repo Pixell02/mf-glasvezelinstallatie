@@ -1,9 +1,9 @@
 import React from 'react'
 import Projects from './Projects'
-
-const projectInfo = [{createDate: "11-03-2023", projectName: "Nazwa projektu", type:"B&A"}]
+import {useCollection} from "../../../hooks/useCollection"
 
 export default function HistoryContent() {
+  const {documents: projectInfo} = useCollection("history")
   return (
     <div className='mt-3'>
       <h3>Historia</h3>

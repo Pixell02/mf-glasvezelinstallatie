@@ -1,6 +1,7 @@
 .navbar {
   display: flex;
   width: 100%;
+  position: fixed;
   height: 80px;
   background-color: rgb(255, 230, 0);
   z-index: 5;
@@ -8,6 +9,5 @@
 
 .navbar .logo-container {
   width: 200px;
-
   margin: 0;
 }

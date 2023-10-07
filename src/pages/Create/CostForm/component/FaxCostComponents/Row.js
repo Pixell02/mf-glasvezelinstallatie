@@ -19,14 +19,15 @@ export default function Row() {
       <DescriptionDimension>
         <b>Omschrijving</b>
       </DescriptionDimension>
+      <PiecesDimension>
+        <b>Stuks</b>
+      </PiecesDimension>
       {params.id !== "B&A" && params.id !== "NB" && params.id !== "Reconstructies" && (
         <>
         <UnitDimension>
         <b>Eenheid</b>
       </UnitDimension>
-      <PiecesDimension>
-        <b>Stuks</b>
-      </PiecesDimension>
+      
       <PriceDimension>
         <b>Prijs</b>
       </PriceDimension>

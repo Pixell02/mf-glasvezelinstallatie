@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar'
 import WorkHoursContainer from './component/WorkHoursContainer'
 
 export default function WorkHours() {
+  
   return (
     <div>
       <Navbar />
